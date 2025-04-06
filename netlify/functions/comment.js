@@ -2,8 +2,42 @@ const http = require('http');
 const Waline = require('@waline/vercel');
 const serverless = require('serverless-http');
 
+// 定义本地化配置对象
+const locale = {
+  nick: '昵称',
+  nickError: '昵称不能少于3个字符',
+  mail: '邮箱',
+  mailError: '请填写正确的邮件地址',
+  link: '网址',
+  placeholder: '🔊请文明发言，牢记社会主义核心价值观！（不填写昵称和邮箱可以匿名评论，但建议填写邮箱可在被回复时收到邮件提醒，邮箱信息不会被公开）。',
+  sofa: '来发评论吧~',
+  submit: '提交',
+  reply: '回复',
+  cancelReply: '取消回复',
+  comment: '评论',
+  more: '加载更多...',
+  preview: '预览',
+  emoji: '表情',
+  expand: '查看更多...',
+  seconds: '秒前',
+  minutes: '分钟前',
+  hours: '小时前',
+  days: '天前',
+  now: '刚刚',
+  uploading: '正在上传',
+  login: '登录',
+  logout: '退出',
+  admin: '博主',
+  word: '字',
+  wordHint: '评论字数应在 $0 到 $1 字之间！\n当前字数：$2',
+};
+
 const app = Waline({
   env: 'netlify',
+  locale: locale, // 将本地化配置传入 Waline 实例
+  forbiddenWords: ['习近平', '毛泽东','免费节点','屌','逼','傻','臭'], //违禁词
+  disallowIPList: [''], // 黑名单
+  avatar:'retro', // (''/mp/identicon/monsterid/wavatar/robohash/retro/hide)
   async postSave(comment) {
     // do what ever you want after save comment
   },

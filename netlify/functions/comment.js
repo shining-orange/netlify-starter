@@ -6,7 +6,6 @@ const app = Waline({
   env: 'netlify', 
   forbiddenWords: ['习近平', '毛泽东','免费节点','屌','逼','傻','臭'], //违禁词
   disallowIPList: [''], // 黑名单
-  avatar:'retro', // (''/mp/identicon/monsterid/wavatar/robohash/retro/hide)
   async postSave(comment) {
     // do what ever you want after save comment
   },

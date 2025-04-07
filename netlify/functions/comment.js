@@ -52,7 +52,7 @@ const app = Waline({
             color:#12addb" href="{{site.postUrl}}" target="_blank">查看回复的完整內容</a>
         </p>
         <div style="color: #8c8c8c; font-size: 10px;width: 100%;text-align: center;word-wrap: break-word;">
-            <p style="padding: 20px">不管当下的境遇如何，提瓦特大陆的星空永远会有你的位置。——《原神》</p>
+            <p style="padding: 20px">喧闹任其喧闹，自由我自为之。我自风情万种，与世无争。——陈果</p>
         </div>
     </div>
 </div>`,

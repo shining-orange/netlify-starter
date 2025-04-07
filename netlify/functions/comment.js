@@ -3,9 +3,10 @@ const Waline = require('@waline/vercel');
 const serverless = require('serverless-http');
 
 const app = Waline({
-  env: 'netlify', 
-  forbiddenWords: ['习近平', '毛泽东','免费节点','屌','逼','傻','臭'], //违禁词
-  disallowIPList: [''], // 黑名单
+  env: 'netlify',
+  AVATAR_PROXY: 'retro',
+  forbiddenWords: ['习近平','毛泽东','免费节点','屌','逼','傻','臭'],
+  disallowIPList: [''],
   async postSave(comment) {
     // do what ever you want after save comment
   },

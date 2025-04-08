@@ -4,7 +4,6 @@ const serverless = require('serverless-http');
 
 const app = Waline({
   env: 'netlify',
-  AVATAR_PROXY: 'https://seccdn.libravatar.org/avatar/((mail|md5}}?d=retro',
   forbiddenWords: ['习近平','毛泽东','免费节点','逼','傻','臭'],
   disallowIPList: [''],
   async postSave(comment) {

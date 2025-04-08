@@ -20,54 +20,120 @@ const app = Waline({
     if (regq.test(nick)) {
         return 'https://q1.qlogo.cn/headimg_dl?dst_uin=' + nick + '&spec=4';
     }
-    if (reg.test(mail)) {
+    else if (reg.test(mail)) {
       const q = mail.replace(/@qq\.com/i, '').toLowerCase();
       return 'https://q1.qlogo.cn/headimg_dl?dst_uin=' + q + '&spec=4';
     }
   },
-    mailTemplateAdmin: `<div style="background: url(https://tva3.sinaimg.cn/large/c56b8822ly1h62npb7s1ej201y01y0lh.jpg);padding:40px 0px 20px;margin:0px;background-color:#FFCDCE;width:100%;">
-	<style type="text/css">@media screen and (max-width:600px){.afterimg,.beforeimg{display:none!important}}</style>
-	<div style="border-radius: 10px 10px 10px 10px;font-size:14px;color: #555555;width: 530px;font-family:'Century Gothic','Trebuchet MS','Hiragino Sans GB',微软雅黑,'Microsoft Yahei',Tahoma,Helvetica,Arial,'SimSun',sans-serif;margin:50px auto;max-width:100%;background: ##ffffff;">
-		<img class="beforeimg" style="width:530px;height:317px;pointer-events:none" src="https://npm.elemecdn.com/hexo-butterfly-envelope/lib/before.png">
-		<img src="https://npm.elemecdn.com/hexo-butterfly-envelope/lib/violet.jpg" style="width:100%;overflow:hidden;pointer-events:none;margin-top: -120px;">
-		<div style="width:100%;background:#f8d1ce;color:#9d2850;background-image: -moz-linear-gradient(0deg, rgb(67, 198, 184), rgb(255, 209, 244));height: 66px;background: url(https://tva2.sinaimg.cn/large/c56b8822ly1h61tb7tagcj20ii01u3yc.jpg) left top no-repeat;display: flex;justify-content: center;flex-direction: column;">
-		<p style="font-size:16px;font-weight: bold;text-align:center;word-break:break-all;margin:0;">
-		您在<a style="text-decoration:none;color: #9d2850;" href="{{site.url}}"target="_blank">CatOi的个人星球🪐</a>上的文章有了新的评论</p>
-		</div>
-		<div class="formmain" style="background:#fff;width:100%;max-width:800px;margin:auto auto;overflow:hidden;margin-bottom: -155px;">
-			<div style="margin:40px auto;width:90%;"><p><strong>{{self.nick}}</strong> 回复说：</p>
-			<div style="background: #fafafa repeating-linear-gradient(-45deg,#fff,#fff 1.125rem,transparent 1.125rem,transparent 2.25rem);box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);margin:20px 0px;padding:15px;border-radius:5px;font-size:15px;color:#555555;">{{self.comment | safe}}</div>
-			<p style="text-align:center;position: relative;z-index: 99;">您可以点击<a style="text-decoration:none;color:#cf5c83" href="{{site.postUrl}}" target="_blank">查看回复的完整內容</a></p>
-			<img src="https://npm.elemecdn.com/hexo-butterfly-envelope/lib/line.png" style="width:100%;margin:25px auto 5px auto;display:block;pointer-events:none">
-			<p class="bottomhr" style="font-size:12px;text-align:center;color:#999">书上说,天下没有不散的宴席.书上还说,人生何处不相逢.</p>
-			</div>
-		</div>
-		<img class="afterimg" style="width:535px;height:317px;z-index:100;margin-left: -3px;"src="https://npm.elemecdn.com/hexo-butterfly-envelope/lib/after.png">
-	</div>
+    mailTemplateAdmin: `<div style="
+    border-radius: 10px 10px 10px 10px;
+    font-size: 13px;
+    color: #555555;
+    width: 666px;
+    margin: 50px auto;
+    border: 1px solid #eee;
+    max-width: 100%;
+    background: #ffffff repeating-linear-gradient(-45deg,#fff,#fff 1.125rem,transparent 1.125rem,transparent 2.25rem);
+    box-shadow: 0 1px 5px rgb(0 0 0 / 15%);">
+    <div style="
+    background:#49BDAD;
+    color:#ffffff;
+    border-radius: 10px 10px 0 0;
+    background-image: -moz-linear-gradient(0deg, rgb(67, 198, 184), rgb(255, 209, 244));
+    background-image: -webkit-linear-gradient(0deg, rgb(67, 198, 184), rgb(255, 209, 244));
+    height: 66px;">
+        <p style="font-size:15px;
+        word-break:break-all;
+        padding: 23px 32px;
+        margin:0;
+        background-color: hsla(0,0%,100%,.4);
+        border-radius: 10px 10px 0 0;">
+            您的<a style="text-decoration:none;
+            color: #ffffff;" href="{{site.url}}" target="_blank">CatOi的个人星球🪐</a>有了新评论啦！
+        </p>
+    </div>
+    <div style="margin:20px auto;width:90%">
+        <p><strong >{{self.nick}}</strong> 同学 给您的评论如下：</p>
+        <div style="background: #f5f5f5;
+        margin:20px 0;
+        padding:15px;
+        border-radius:5px;
+        font-size:14px;">
+            <p >{{self.comment | safe}}</p>
+        </div>
+        <p>
+            您可以点击<a style="text-decoration:none;
+            color:#12addb" href="{{site.postUrl}}" target="_blank">查看回复的完整內容</a>
+        </p>
+        <div style="color: #8c8c8c; font-size: 10px;width: 100%;text-align: center;word-wrap: break-word;">
+            <p style="padding: 20px">喧闹任其喧闹，自由我自为之。我自风情万种，与世无争。——陈果</p>
+        </div>
+    </div>
 </div>`,
-    mailTemplate: `<div style="background: url(https://tva3.sinaimg.cn/large/c56b8822ly1h62npb7s1ej201y01y0lh.jpg);padding:40px 0px 20px;margin:0px;background-color:#FFCDCE;width:100%;">
-	<style type="text/css">@media screen and (max-width:600px){.afterimg,.beforeimg{display:none!important}}</style>
-	<div style="border-radius: 10px 10px 10px 10px;font-size:14px;color: #555555;width: 530px;font-family:'Century Gothic','Trebuchet MS','Hiragino Sans GB',微软雅黑,'Microsoft Yahei',Tahoma,Helvetica,Arial,'SimSun',sans-serif;margin:50px auto;max-width:100%;background: ##ffffff;">
-		<img class="beforeimg" style="width:530px;height:317px;z-index:-100;pointer-events:none" src="https://npm.elemecdn.com/hexo-butterfly-envelope/lib/before.png">
-		<img src="https://npm.elemecdn.com/hexo-butterfly-envelope/lib/violet.jpg" style="width:100%;overflow:hidden;pointer-events:none;margin-top: -120px;">
-		<div style="width:100%;background:#f8d1ce;color:#9d2850;background-image: -moz-linear-gradient(0deg, rgb(67, 198, 184), rgb(255, 209, 244));height: 66px;background: url(https://tva2.sinaimg.cn/large/c56b8822ly1h61tb7tagcj20ii01u3yc.jpg) left top no-repeat;display: flex;justify-content: center;flex-direction: column;">
-		<p style="font-size:16px;font-weight: bold;text-align:center;word-break:break-all;margin:0;">
-		您在<a style="text-decoration:none;color: #9d2850;" href="{{site.url}}">『CatOi的个人星球🪐』</a>上的留言有新回复啦！</p>
-		</div>
-		<div class="formmain" style="background:#fff;width:100%;max-width:800px;margin:auto auto;overflow:hidden;margin-bottom: -155px;">
-			<div style="margin:40px auto;width:90%;"><p>😊Hi，{{parent.nick}}，您曾在文章上发表评论：</p>
-			<div style="background: #fafafa repeating-linear-gradient(-45deg,#fff,#fff 1.125rem,transparent 1.125rem,transparent 2.25rem);box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);margin:20px 0px;padding:15px;border-radius:5px;font-size:15px;color:#555555;">{{parent.comment | safe}}</div>
-			<p><strong>{{self.nick}}</strong> 给您的回复如下：</p>
-			<div style="background: #fafafa repeating-linear-gradient(-45deg,#fff,#fff 1.125rem,transparent 1.125rem,transparent 2.25rem);box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);margin:20px 0px;padding:15px;border-radius:5px;font-size:15px;color:#555555;">{{self.comment | safe}}</div>
-			<p>您可以点击<a style="text-decoration:none; color:#cf5c83" href="{{site.postUrl}}" target="_blank"> 查看回复的完整內容 </a>，欢迎再次光临<a style="text-decoration:none; color:#cf5c83" href="{{site.url}}" target="_blank"> {{CatOi的个人星球🪐}} </a>。<hr />
-			<p style="font-size:14px;color:#b7adad;text-align:center;position: relative;z-index: 99;">本邮件为系统自动发送，请勿直接回复邮件哦，可到博文内容回复。<br />{{site.url}}</p>
-			</p>
-			<img src="https://npm.elemecdn.com/hexo-butterfly-envelope/lib/line.png" style="width:100%;margin:25px auto 5px auto;display:block;pointer-events:none">
-			<p class="bottomhr" style="font-size:12px;text-align:center;color:#999">书上说,天下没有不散的宴席.书上还说,人生何处不相逢.</p>
-			</div>
-		</div>
-		<img class="afterimg" style="width:535px;height:317px;z-index:100;margin-left: -3px;"src="https://npm.elemecdn.com/hexo-butterfly-envelope/lib/after.png">
-	</div>
+    mailTemplate: `<div style="
+    border-radius: 10px 10px 10px 10px;
+    font-size: 13px;
+    color: #555555;
+    width: 666px;
+    margin: 50px auto;
+    border: 1px solid #eee;
+    max-width: 100%;
+    background: #ffffff repeating-linear-gradient(-45deg,#fff,#fff 1.125rem,transparent 1.125rem,transparent 2.25rem);
+    box-shadow: 0 1px 5px rgb(0 0 0 / 15%);">
+    <div style="
+    background:#49BDAD;
+    color:#ffffff;
+    border-radius: 10px 10px 0 0;
+    background-image: -moz-linear-gradient(0deg, rgb(67, 198, 184), rgb(255, 209, 244));
+    background-image: -webkit-linear-gradient(0deg, rgb(67, 198, 184), rgb(255, 209, 244));
+    height: 66px;">
+       <!-- <p style="font-size:15px;
+        word-break:break-all;
+        padding: 23px 32px;
+        margin:0;
+        background-color: hsla(0,0%,100%,.4);
+        border-radius: 10px 10px 0 0;">
+            您在<a style="text-decoration:none;
+            color:#12addb;" href="http://xcodey.com/" target="_blank">橘子🍊个人博客</a>上的留言有新回复啦！
+        </p>-->
+        <p style="font-size:15px;
+        word-break:break-all;
+        padding: 23px 32px;
+        margin:0;
+        background-color: hsla(0,0%,100%,.4);
+        border-radius: 10px 10px 0 0;">
+            您在<a style="text-decoration:none;
+            color:#12addb;" href="{{site.url}}" target="_blank">CatOi的个人星球🪐</a>上的留言有新回复啦！
+        </p>
+    </div>
+    <div style="margin:20px auto;width:90%">
+        <p><strong >😊Hi，{{parent.nick}}，</strong> 同学，您曾在<a href="{{site.postUrl}}" style="text-decoration: none;
+        color:#12addb"></a>上发表评论：</p>
+        <div style="background: #f5f5f5;
+        margin:20px 0;
+        padding:15px;
+        border-radius:5px;
+        font-size:14px;">
+            <p>{{parent.comment | safe}}</p>
+        </div>
+        <p><strong >{{self.nick}}</strong> 给您的回复如下：</p>
+        <div style="background: #f5f5f5;
+        margin:20px 0;
+        padding:15px;
+        border-radius:5px;
+        font-size:14px;">
+            <p>{{self.comment | safe}}</p>
+        </div>
+        <p>
+            您可以点击<a style="text-decoration:none;
+            color:#12addb" target="_blank" href="{{site.postUrl}}">查看回复的完整內容</a>
+            ，欢迎再次光临<a style="text-decoration:none;
+            color:#12addb" href="https://catoi.cn/" target="_blank">CatOi的个人星球🪐</a>。
+        </p>
+        <div style="color: #8c8c8c; font-size: 10px;width: 100%;text-align: center;word-wrap: break-word;">
+            <p style="padding: 20px">书上说,天下没有不散的宴席.书上还说,人生何处不相逢.</p>
+        </div>
+    </div>
 </div>`
 });
 

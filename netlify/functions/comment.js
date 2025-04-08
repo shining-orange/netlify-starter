@@ -12,12 +12,6 @@ const app = Waline({
       text: `${comment.nick} 回复了你的评论!`,
     });
   },
-  async preSave(comment) {
-    const isSpam = await Akismet.check(comment);
-    if (isSpam) {
-      return { errmsg: '请勿发送垃圾邮件!' };
-    }
-  },
   async postSave(comment, pComment) {
     await mailto({
       mail: pComment.mail,

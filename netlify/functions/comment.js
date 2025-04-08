@@ -6,8 +6,42 @@ const app = Waline({
   env: 'netlify', 
   forbiddenWords: ['习近平', '毛泽东','免费节点','屌','逼','傻','臭'], //违禁词
   disallowIPList: [''], // 黑名单
-  async postSave(comment) {
-    // do what ever you want after save comment
+  async postSave(comment, pComment) {
+    await mailto({
+      mail: pComment.mail,
+      text: `${comment.nick} 回复了你的评论!`,
+    });
+  },
+  async preSave(comment) {
+    const isSpam = await Akismet.check(comment);
+    if (isSpam) {
+      return { errmsg: '请勿发送垃圾邮件!' };
+    }
+  },
+  async postSave(comment, pComment) {
+    await mailto({
+      mail: pComment.mail,
+      text: `${comment.nick} 回复了你的评论!`,
+    });
+  },
+  async preUpdate(comment) {
+    return '你无法更新评论数据';
+  },
+  async postUpdate(comment) {
+    console.log(`${comment.objectId} 评论已更新!`);
+  },
+  async avatarUrl(comment) {
+    const regq = new RegExp('^[1-9][0-9]{4,10}$');
+    const reg = new RegExp('(\\d+)@qq\\.com$', 'i');
+    const mail = comment.mail;
+    const nick = comment.nick;
+    if (regq.test(nick)) {
+        return 'https://q1.qlogo.cn/headimg_dl?dst_uin=' + nick + '&spec=4';
+    }
+    if (reg.test(mail)) {
+      const q = mail.replace(/@qq\.com/i, '').toLowerCase();
+      return 'https://q1.qlogo.cn/headimg_dl?dst_uin=' + q + '&spec=4';
+    }
   },
     mailTemplateAdmin: `<div style="background: url(https://tva3.sinaimg.cn/large/c56b8822ly1h62npb7s1ej201y01y0lh.jpg);padding:40px 0px 20px;margin:0px;background-color:#FFCDCE;width:100%;">
 	<style type="text/css">@media screen and (max-width:600px){.afterimg,.beforeimg{display:none!important}}</style>

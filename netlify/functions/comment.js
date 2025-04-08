@@ -22,9 +22,10 @@ const app = Waline({
     }
     else if (reg.test(mail)) {​
         const q = mail.replace(/@qq\.com/i, '').toLowerCase();​
-        if (regq.test(q)) {​
-            return 'https://q1.qlogo.cn/headimg_dl?dst_uin=' + q + '&spec=4';​
-        }​
+        if (reg.test(q)) {
+          return 'https://q1.qlogo.cn/headimg_dl?dst_uin=' + q + '&spec=4';
+        }
+          return null;
     }
   },
     mailTemplateAdmin: `<div style="

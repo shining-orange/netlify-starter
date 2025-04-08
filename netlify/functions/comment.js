@@ -6,18 +6,6 @@ const app = Waline({
   env: 'netlify', 
   forbiddenWords: ['习近平', '毛泽东','免费节点','屌','逼','傻','臭'], //违禁词
   disallowIPList: [''], // 黑名单
-  async postSave(comment, pComment) {
-    await mailto({
-      mail: pComment.mail,
-      text: `${comment.nick} 回复了你的评论!`,
-    });
-  },
-  async postSave(comment, pComment) {
-    await mailto({
-      mail: pComment.mail,
-      text: `${comment.nick} 回复了你的评论!`,
-    });
-  },
   async preUpdate(comment) {
     return '你无法更新评论数据';
   },

@@ -17,12 +17,14 @@ const app = Waline({
     const reg = new RegExp('(\\d+)@qq\\.com$', 'i');
     const mail = comment.mail;
     const nick = comment.nick;
-    if (regq.test(nick)) {
-        return 'https://q1.qlogo.cn/headimg_dl?dst_uin=' + nick + '&spec=4';
+    if (regq.test(nick)) {​
+        return 'https://q1.qlogo.cn/headimg_dl?dst_uin=' + nick + '&spec=4';​
     }
-    if (reg.test(mail)) {
-      const q = mail.replace(/@qq\.com/i, '').toLowerCase();
-      return 'https://q1.qlogo.cn/headimg_dl?dst_uin=' + q + '&spec=4';
+    else if (reg.test(mail)) {​
+        const q = mail.replace(/@qq\.com/i, '').toLowerCase();​
+        if (regq.test(q)) {​
+            return 'https://q1.qlogo.cn/headimg_dl?dst_uin=' + q + '&spec=4';​
+        }​
     }
   },
     mailTemplateAdmin: `<div style="

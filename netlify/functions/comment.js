@@ -20,7 +20,7 @@ const app = Waline({
     if (regq.test(nick)) {
         return 'https://q1.qlogo.cn/headimg_dl?dst_uin=' + nick + '&spec=4';
     }
-    else if (reg.test(mail)) {
+    if (reg.test(mail)) {
       const q = mail.replace(/@qq\.com/i, '').toLowerCase();
       return 'https://q1.qlogo.cn/headimg_dl?dst_uin=' + q + '&spec=4';
     }

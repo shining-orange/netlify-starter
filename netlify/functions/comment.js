@@ -1,20 +1,20 @@
 const http = require('http');
 const Waline = require('@waline/vercel');
 const serverless = require('serverless-http');
-const forbiddenWords: ['习近平', '毛泽东','免费节点','屌','逼','傻','臭']; //违禁词
+
 const app = Waline({
   env: 'netlify', 
-  // forbiddenWords: ['习近平', '毛泽东','免费节点','屌','逼','傻','臭'], //违禁词
+  forbiddenWords: ['习近平', '毛泽东','免费节点','屌','逼','傻','臭'], //违禁词
   // 自定义保存前逻辑，检测并替换违禁词
-    async preSave(comment) {
-        const originalComment = comment.comment;
-        const newComment = originalComment.replace(new RegExp(forbiddenWords.map(word => `\\b${word}\\b`).join('|'), 'ig'), '***');
-        if (originalComment!== newComment) {
-            comment.comment = newComment;
-            console.log('评论包含违禁词，已进行替换处理');
-        }
-        return comment;
-    },
+  async preSave(comment) {
+      const originalComment = comment.comment;
+      const newComment = originalComment.replace(new RegExp(forbiddenWords.map(word => `\\b${word}\\b`).join('|'), 'ig'), '***');
+      if (originalComment!== newComment) {
+          comment.comment = newComment;
+          console.log('评论包含违禁词，已进行替换处理');
+      }
+      return comment;
+  },
   disallowIPList: [''], // 黑名单
   // async preUpdate(comment) {
   //   return '你无法更新评论数据';

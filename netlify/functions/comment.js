@@ -1,7 +1,7 @@
 const http = require('http');
 const Waline = require('@waline/vercel');
 const serverless = require('serverless-http');
-const forbiddenWords: ['习近平', '毛泽东','免费节点','屌','逼','傻','臭'], //违禁词
+const forbiddenWords: ['习近平', '毛泽东','免费节点','屌','逼','傻','臭']; //违禁词
 // 生成违禁词正则表达式
 const forbiddenWordsRegex = new RegExp(forbiddenWords.map(word => `\\b${word}\\b`).join('|'), 'ig');
 const app = Waline({

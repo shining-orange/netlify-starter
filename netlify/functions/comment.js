@@ -1,9 +1,10 @@
 const http = require('http');
 const Waline = require('@waline/vercel');
 const serverless = require('serverless-http');
+const forbiddenWords: ['习近平', '毛泽东','免费节点','屌','逼','傻','臭']; //违禁词
 const app = Waline({
   env: 'netlify', 
-  forbiddenWords: ['习近平', '毛泽东','免费节点','屌','逼','傻','臭'], //违禁词
+  // forbiddenWords: ['习近平', '毛泽东','免费节点','屌','逼','傻','臭'], //违禁词
   // 自定义保存前逻辑，检测并替换违禁词
     async preSave(comment) {
         const originalComment = comment.comment;

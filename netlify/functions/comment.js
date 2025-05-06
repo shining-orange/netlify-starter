@@ -10,14 +10,14 @@ const app = Waline({
   // async preUpdate(comment) {
   //   return '你无法更新评论数据';
   // },
+  // async preSave(comment) {
+  //   const isSpam = await Akismet.check(comment);
+  //   if (isSpam) {
+  //     return { errmsg: '不可以评论这些哦（含有违禁词）!' };
+  //   }
+  // },
   async postUpdate(comment) {
     console.log(`${comment.objectId} 评论已更新!`);
-  },
-  async preSave(comment) {
-    const isSpam = await Akismet.check(comment);
-    if (isSpam) {
-      return { errmsg: '不可以评论这些哦（含有违禁词）!' };
-    }
   },
   async avatarUrl(comment) {
     const regq = new RegExp('^[1-9][0-9]{4,10}$');

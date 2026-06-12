@@ -93,15 +93,6 @@ const app = Waline({
     background-image: -moz-linear-gradient(0deg, rgb(67, 198, 184), rgb(255, 209, 244));
     background-image: -webkit-linear-gradient(0deg, rgb(67, 198, 184), rgb(255, 209, 244));
     height: 66px;">
-       <!-- <p style="font-size:15px;
-        word-break:break-all;
-        padding: 23px 32px;
-        margin:0;
-        background-color: hsla(0,0%,100%,.4);
-        border-radius: 10px 10px 0 0;">
-            您在<a style="text-decoration:none;
-            color:#12addb;" href="http://xcodey.com/" target="_blank">橘子🍊个人博客</a>上的留言有新回复啦！
-        </p>-->
         <p style="font-size:15px;
         word-break:break-all;
         padding: 23px 32px;

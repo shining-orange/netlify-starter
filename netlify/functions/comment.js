@@ -63,12 +63,16 @@ const app = Waline({
         font-size:14px;">
             <p >{{self.comment | safe}}</p>
         </div>
-        <p>
-            您可以点击<a style="text-decoration:none;
-            color:#12addb" href="{{site.postUrl}}" target="_blank">查看回复的完整內容</a>
-        </p>
+	<div style="padding:0px 38px 30px;">
+        <table cellpadding="0" cellspacing="0" border="0" width="100%">
+            <tr>
+                <td align="center">
+                    <a href="{{site.postUrl}}" target="_blank" style="display:inline-block;padding:12px 40px;background-image: linear-gradient(135deg,#f7f0ac,#acf7f0,#f0acf7);color:#ffffff;text-decoration:none;border-radius:6px;font-size:13px;font-weight:500;letter-spacing:0.3px;">查看完整评论</a>
+                </td>
+            </tr>
+        </table></div>
         <div style="color: #8c8c8c; font-size: 10px;width: 100%;text-align: center;word-wrap: break-word;">
-            <p style="padding: 20px">喧闹任其喧闹，自由我自为之。我自风情万种，与世无争。——陈果</p>
+            <p style="margin:0;font-size:11px;color:#a0a0a8;font-style:italic;line-height:1.65;">喧闹任其喧闹，自由我自为之。我自风情万种，与世无争。——陈果</p>
         </div>
     </div>
 </div>`,
@@ -126,14 +130,16 @@ const app = Waline({
         font-size:14px;">
             <p>{{self.comment | safe}}</p>
         </div>
-        <p>
-            您可以点击<a style="text-decoration:none;
-            color:#12addb" target="_blank" href="{{site.postUrl}}">查看回复的完整內容</a>
-            ，欢迎再次光临<a style="text-decoration:none;
-            color:#12addb" href="https://catoi.cn/" target="_blank">CatOi的个人星球🪐</a>。
-        </p>
+	<div style="padding:0px 38px 30px;">
+	<table cellpadding="0" cellspacing="0" border="0" width="100%">
+            <tr>
+                <td align="center">
+                    <a href="{{site.postUrl}}" target="_blank" style="display:inline-block;padding:12px 40px;background-image: linear-gradient(135deg,#f7f0ac,#acf7f0,#f0acf7);color:#ffffff;text-decoration:none;border-radius:6px;font-size:13px;font-weight:500;letter-spacing:0.3px;">查看完整回复</a>
+                </td>
+            </tr>
+        </table></div>
         <div style="color: #8c8c8c; font-size: 10px;width: 100%;text-align: center;word-wrap: break-word;">
-            <p style="padding: 20px">书上说,天下没有不散的宴席.书上还说,人生何处不相逢.</p>
+            <p style="margin:0;font-size:11px;color:#a0a0a8;font-style:italic;line-height:1.65;">书上说,天下没有不散的宴席.书上还说,人生何处不相逢.</p>
         </div>
     </div>
 </div>`
